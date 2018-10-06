@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script src="//d3js.org/d3.v3.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_SVG"></script>
+    <script type="text/javascript" src="svg_mathjax.js"></script>
+    <script src="d3_graphical_model.js"></script>
+  </head>
+
+  <body>
+    <script type="text/javascript">
+    function draw_graph(svg){
+
+      var radius = 30;
+      var dist_x = 150;
+      var dist_y = 150;
+      var margin_x = 150;
+      var margin_y = 150;
+      var markersize = 10;
+
+      var nodes = [];
+      var edges = [];
+      var T = 5;
+
+      for (var t = 0; t<T;t++){
+        nodes.push({title: "\\( x_" + t +" \\)", id: 2*t, x: margin_x + dist_x*t , y: margin_y, fill:"#F6FBFF"});
+        nodes.push({title: "\\( y_" + t + " \\)", id: 2*t + 1, x: margin_x + dist_x*t , y: margin_y + dist_y, fill:"#F6FB99"});
+        edges.push({source: nodes[2*t], target: nodes[2*t+1]})
+        if (t>0) edges.push({source: nodes[2*(t-1)], target: nodes[2*t]})
+      }
+
+    create_graph(d3.select(svg), nodes, edges, radius, markersize);
+    }
+    </script>
+
+    <svg onload="draw_graph(this);" width=900 height=400></svg>
+    
+  </body>
+
+</html>
