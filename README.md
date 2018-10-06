@@ -1,0 +1,1 @@
+Very simplistic script for drawing graphical models in d3.js. The code is based on the [directed-graph-creator](https://bl.ocks.org/cjrd/6863459) by Colorado Reed. The [SVG_MathJax](https://bitbucket.org/jason_s/svg_mathjax) by Jason Sachs is used for displaying MathJax. 
